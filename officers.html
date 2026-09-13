@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Officers | Emerald DECA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Accent line UNDERNEATH the navbar */
+        .navbar {
+            border-bottom: 4px solid var(--blue, #00529B);
+        }
+
+        .page-hero {
+            padding: 75px 7% 55px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FBFE 55%, #EAF3FB 100%);
+        }
+
+        .page-hero h1 {
+            font-size: clamp(55px, 7vw, 90px);
+            line-height: .95;
+            letter-spacing: -3px;
+            color: var(--blue, #00529B);
+            margin-bottom: 18px;
+        }
+
+        .page-hero p {
+            max-width: 650px;
+            font-size: 17px;
+        }
+
+        .officers-section {
+            width: 84%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 65px 0 40px;
+        }
+
+        .officer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .officer-card {
+            background: white;
+            border: 1px solid var(--border, #e0e0e0);
+            padding: 25px;
+            min-height: 300px;
+            transition: .2s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .officer-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0,0,0,.07);
+            border-color: var(--blue, #00529B);
+        }
+
+        .officer-photo {
+            height: 150px;
+            background: var(--light-blue, #EAF3FB);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .officer-photo span {
+            color: var(--blue, #00529B);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .officer-card h2 {
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .officer-card h3 {
+            font-size: 11px;
+            color: var(--blue, #00529B);
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .officer-card p {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .click-hint {
+            display: block;
+            margin-top: 15px;
+            font-size: 10px !important;
+            font-weight: 700;
+            color: var(--blue, #00529B);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- ROLES OVERVIEW SECTION --- */
+        .roles-section {
+            width: 84%;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border, #e0e0e0);
+        }
+
+        .roles-section h2 {
+            font-size: 32px;
+            color: var(--blue, #00529B);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .roles-section p.section-intro {
+            font-size: 15px;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .role-box {
+            background: #F8FBFE;
+            border: 1px solid var(--border, #e0e0e0);
+            padding: 20px;
+        }
+
+        .role-box h4 {
+            font-size: 14px;
+            color: var(--blue, #00529B);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .role-box p {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* --- MODAL POP-UP STYLES --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: white;
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            border: 1px solid var(--border, #e0e0e0);
+            position: relative;
+            animation: modalFadeIn 0.2s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #000;
+        }
+
+        .modal-card h2 {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .modal-card h3 {
+            font-size: 12px;
+            color: var(--blue, #00529B);
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .modal-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        @media (max-width: 850px) {
+            .officer-grid, .roles-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .officer-grid, .roles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="brand">
+        <img src="logo.png" alt="DECA Logo" class="logo">
+    </a>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="officers.html" class="active">OFFICERS</a>
+        <a href="membership.html">MEMBERSHIP</a>
+        <a href="events.html">EVENTS</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <p class="eyebrow">Our Advisor and Officers</p>
+    <h1>Meet the Team</h1>
+    <p>
+        Meet the student leaders who help guide Emerald DECA,
+        create opportunities for members, and build our chapter
+        throughout the year. Click on any officer to read their bio!
+    </p>
+</section>
+
+<!-- OFFICERS GRID -->
+<section class="officers-section">
+    <div class="officer-grid">
+
+        <!-- Advisor -->
+        <div class="officer-card" onclick="openModal('Bailey Udoutch', 'Advisor', 'Mrs. Udoutch is dedicated to guiding the Emerald High DECA chapter toward excellence. With years of experience supporting student leaders, she oversees overall operations and ensures members have access to regional and state DECA events.')">
+            <div class="officer-photo">
+                <span>PHOTO COMING SOON</span>
+            </div>
+            <h2>Bailey Udoutch</h2>
+            <h3>ADVISOR</h3>
+            <span class="click-hint">Click to read bio →</span>
+        </div>
+
+        <!-- President -->
+        <div class="officer-card" onclick="openModal('Anish Jaladi', 'President', 'Anish is a senior passionate about entrepreneurship and strategic leadership. As President, he oversees all chapter initiatives, manages team workflows, and works directly with state officers to elevate Emerald DECA.')">
+            <div class="officer-photo">
+                <span>PHOTO COMING SOON</span>
+            </div>
+            <h2>Anish Jaladi</h2>
+            <h3>PRESIDENT</h3>
+            <span class="click-hint">Click to read bio →</span>
+        </div>
+
+        <!-- VP of Leadership -->
+        <div class="officer-card" onclick="openModal('Harshita Nutakki', 'VP of Leadership', 'Harshita focuses on empowering every Emerald DECA member. She leads team-building activities, officer retreats, and ensures that student voices are integrated into every decision.')">
+            <div class="officer-photo">
+                <span>PHOTO COMING SOON</span>
+            </div>
+            <h2>Harshita Nutakki</h2>
+            <h3>VP OF LEADERSHIP</h3>
+            <span class="click-hint">Click to read bio →</span>
+        </div>
+
+        <!-- VP of Finance -->
+        <div class="officer-card" onclick="openModal('Dhruv Kshirsagar', 'VP of Finance', 'Dhruv manages Emerald DECA’s finances, budgeting for competitions, and designing fundraising drives. His focus is ensuring all members have accessible opportunities to compete.')">
+            <div class="officer-photo">
+                <span>PHOTO COMING SOON</span>
+            </div>
+            <h2>Dhruv Kshirsagar</h2>
+            <h3>VP OF FINANCE</h3>
+            <span class="click-hint">Click to read bio →</span>
+        </div>
+
+        <!-- VP of Marketing -->
+        <div class="officer-card" onclick="openModal('Taneshka Reddygari', 'VP of Marketing', 'Taneshka drives Emerald DECA’s public presence across social media, promotional material, and recruitment drives. She is passionate about graphic design and branding.')">
+            <div class="officer-photo">
+                <span>PHOTO COMING SOON</span>
+            </div>
+            <h2>Taneshka Reddygari</h2>
+            <h3>VP OF MARKETING</h3>
+            <span class="click-hint">Click to read bio →</span>
+        </div>
+
+        <!-- VP of Career Development -->
+        <div class="officer-card" onclick="openModal('Yukthika Palavelli', 'VP of Career Development', 'Yukthika works tirelessly to prepare members for DECA competitive events. She organizes roleplay workshops, guest speaker panels, and mock competitions.')">
+            <div class="officer-photo">
+                <span>PHOTO COMING SOON</span>
+            </div>
+            <h2>Yukthika Palavelli</h2>
+            <h3>VP OF CAREER DEVELOPMENT</h3>
+            <span class="click-hint">Click to read bio →</span>
+        </div>
+
+        <!-- Director of Career Development -->
+        <div class="officer-card" onclick="openModal('Sahasra Gangineni', 'Director of Career Development', 'Sahasra works closely with the VP of Career Development to compile study resources, organize practice tests, and mentor new competitors.')">
+            <div class="officer-photo">
+                <span>PHOTO COMING SOON</span>
+            </div>
+            <h2>Sahasra Gangineni</h2>
+            <h3>DIRECTOR OF CAREER DEVELOPMENT</h3>
+            <span class="click-hint">Click to read bio →</span>
+        </div>
+
+        <!-- VP of Hospitality -->
+        <div class="officer-card" onclick="openModal('Shane Swamy', 'VP of Hospitality', 'Shane ensures that every member feels welcomed at meetings, conferences, and social events. He coordinates logistics, catering, and social bonding initiatives.')">
+            <div class="officer-photo">
+                <span>PHOTO COMING SOON</span>
+            </div>
+            <h2>Shane Swamy</h2>
+            <h3>VP OF HOSPITALITY</h3>
+            <span class="click-hint">Click to read bio →</span>
+        </div>
+
+        <!-- Director of Records -->
+        <div class="officer-card" onclick="openModal('Aarav Poddar', 'Director of Records', 'Aarav keeps the chapter organized behind the scenes by recording meeting minutes, tracking member attendance, and maintaining official logs.')">
+            <div class="officer-photo">
+                <span>PHOTO COMING SOON</span>
+            </div>
+            <h2>Aarav Poddar</h2>
+            <h3>DIRECTOR OF RECORDS</h3>
+            <span class="click-hint">Click to read bio →</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- ROLES AND RESPONSIBILITIES OVERVIEW -->
+<section class="roles-section">
+    <h2>Officer Roles & Responsibilities</h2>
+    <p class="section-intro">
+        Our executive leadership structure is designed around DECA’s primary pillars. Here is an overview of how each role supports Emerald DECA members and operations.
+    </p>
+
+    <div class="roles-grid">
+        <div class="role-box">
+            <h4>Chapter President</h4>
+            <p>Directs the executive board, sets annual goals, acts as the primary liaison to school administration, and oversees execution of all chapter initiatives.</p>
+        </div>
+
+        <div class="role-box">
+            <h4>VP of Leadership</h4>
+            <p>Drives member engagement, runs team-building programs, manages chapter committees, and develops leadership training modules.</p>
+        </div>
+
+        <div class="role-box">
+            <h4>VP of Finance</h4>
+            <p>Maintains chapter financial records, oversees fee collections, drafts budget proposals, and coordinates chapter fundraising initiatives.</p>
+        </div>
+
+        <div class="role-box">
+            <h4>VP of Marketing</h4>
+            <p>Manages public relations, designs promotional graphics, runs official social media accounts.</p>
+        </div>
+
+        <div class="role-box">
+            <h4>VP & Director of Career Development</h4>
+            <p>Lead all competitive event prep, coordinate practice exams and roleplays, organize study groups, and host prep workshops.</p>
+        </div>
+
+        <div class="role-box">
+            <h4>VP of Hospitality & Director of Records</h4>
+            <p>Ensure smooth meeting logistics, coordinate social gatherings, manage conference details, and maintain official attendance and chapter records.</p>
+        </div>
+    </div>
+</section>
+
+<!-- POPUP MODAL -->
+<div class="modal-overlay" id="officerModal" onclick="closeModal(event)">
+    <div class="modal-card">
+        <span class="close-btn" onclick="forceCloseModal()">&times;</span>
+        <h2 id="modalName">Officer Name</h2>
+        <h3 id="modalTitle">OFFICER TITLE</h3>
+        <p id="modalBio">Bio text will appear here when clicked...</p>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Emerald High School DECA</p>
+    <p>
+        <a href="contact.html">CONTACT US</a>
+    </p>
+</footer>
+
+<!-- MODAL JAVASCRIPT -->
+<script>
+    function openModal(name, title, bio) {
+        document.getElementById('modalName').innerText = name;
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalBio').innerText = bio;
+        document.getElementById('officerModal').style.display = 'flex';
+    }
+
+    function forceCloseModal() {
+        document.getElementById('officerModal').style.display = 'none';
+    }
+
+    function closeModal(event) {
+        // Close modal if clicking outside the white content box
+        if (event.target.classList.contains('modal-overlay')) {
+            forceCloseModal();
+        }
+    }
+</script>
+
+</body>
+</html>
