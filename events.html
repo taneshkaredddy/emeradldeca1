@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Events | Emerald DECA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Accent line UNDERNEATH the navbar */
+        .navbar {
+            border-bottom: 4px solid var(--blue, #00529B);
+        }
+
+        .page-hero {
+            padding: 75px 7% 55px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FBFE 55%, #EAF3FB 100%);
+            border-bottom: 2px solid var(--light-blue, #EAF3FB);
+        }
+
+        .page-hero h1 {
+            font-size: clamp(55px, 7vw, 90px);
+            line-height: .95;
+            letter-spacing: -3px;
+            color: var(--blue, #00529B);
+            margin-bottom: 18px;
+        }
+
+        .page-hero p {
+            max-width: 650px;
+            font-size: 17px;
+        }
+
+        .events-section {
+            width: 84%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 65px 0 80px;
+        }
+
+        /* Section Title Styling with Blue Accent Line */
+        .section-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--blue, #00529B);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--blue, #00529B);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        /* 60-40 Two Column Split */
+        .events-split-grid {
+            display: grid;
+            grid-template-columns: 6fr 4fr;
+            gap: 30px;
+            margin-bottom: 70px;
+        }
+
+        /* Column 1: Event List Styles */
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .event {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 20px;
+            align-items: center;
+            padding: 20px 24px;
+            border: 1px solid var(--border, #e0e0e0);
+            border-left: 5px solid var(--blue, #00529B);
+            background: white;
+            border-radius: 12px;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .event:hover {
+            transform: translateX(4px);
+            box-shadow: 0 7px 20px rgba(0,82,155,.08);
+        }
+
+        .event-date {
+            text-align: center;
+            color: var(--blue, #00529B);
+        }
+
+        .event-date strong {
+            display: block;
+            font-size: 28px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .event-date span {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .event h3 {
+            font-size: 16px;
+            margin-bottom: 4px;
+            color: #111;
+        }
+
+        .event p {
+            font-size: 12px;
+            color: #555;
+            margin: 0;
+        }
+
+        .event-tag {
+            padding: 6px 10px;
+            background: var(--light-blue, #EAF3FB);
+            color: var(--blue, #00529B);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            border-radius: 6px;
+        }
+
+        /* Column 2: Quick Conferences Sidebar */
+        .sidebar-conferences {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .conf-summary-card {
+            background: #F8FBFE;
+            border: 1px solid var(--border, #e0e0e0);
+            border-left: 4px solid var(--blue, #00529B);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .conf-summary-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,82,155,.08);
+        }
+
+        .conf-summary-card h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--blue, #00529B);
+            margin-bottom: 8px;
+        }
+
+        .conf-meta {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .conf-meta span {
+            display: block;
+        }
+
+        /* Bottom Section: Detailed Conferences */
+        .conferences-section {
+            border-top: 2px solid var(--light-blue, #EAF3FB);
+            padding-top: 50px;
+        }
+
+        .conference-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .conf-box {
+            background: white;
+            border: 1px solid var(--border, #e0e0e0);
+            border-top: 4px solid var(--blue, #00529B);
+            border-radius: 12px;
+            padding: 28px 24px;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .conf-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,82,155,.1);
+        }
+
+        .conf-box h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--blue, #00529B);
+            margin-bottom: 12px;
+        }
+
+        .conf-box p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #666;
+            margin: 0 0 12px 0;
+        }
+
+        /* Bullet List Styling inside Conference Boxes */
+        .conf-content ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #666;
+        }
+
+        .conf-content li {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .conf-content li:last-child {
+            margin-bottom: 0;
+        }
+
+        .conf-content ul ul {
+            margin-top: 6px;
+            margin-bottom: 6px;
+            padding-left: 18px;
+        }
+
+        /* Responsive Layout Adjustments */
+        @media (max-width: 900px) {
+            .events-split-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .conference-boxes {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .event {
+                grid-template-columns: 60px 1fr;
+            }
+
+            .event-tag {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <a href="index.html" class="brand">
+            <img src="logo.png" alt="DECA Logo" class="logo">
+        </a>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="officers.html">OFFICERS</a>
+            <a href="membership.html">MEMBERSHIP</a>
+            <a href="events.html" class="active">EVENTS</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+    </header>
+
+
+    <section class="page-hero">
+
+        <p class="eyebrow">WHAT'S HAPPENING</p>
+
+        <h1>Events</h1>
+
+        <p>
+            Stay up to date with Emerald DECA meetings,
+            conferences, competitions, and chapter activities.
+        </p>
+
+    </section>
+
+
+    <section class="events-section">
+
+        <!-- 60-40 Split Section -->
+        <div class="events-split-grid">
+
+            <!-- Left Side (60%): UPCOMING DATES -->
+            <div class="events-col">
+                <h2 class="section-title">Upcoming Dates</h2>
+
+                <div class="event-list">
+
+                    <div class="event">
+                        <div class="event-date">
+                            <strong>16</strong>
+                            <span>SEP</span>
+                        </div>
+                        <div>
+                            <h3>VBC Info Meeting</h3>
+                            <p> Learn about the virtual business challenge and how to compete. Come to the lecture hall during access. </p>
+                        </div>
+                        <div class="event-tag">INFORMATION</div>
+                    </div>
+
+                    <div class="event">
+                        <div class="event-date">
+                            <strong>29</strong>
+                            <span>OCT</span>
+                        </div>
+                        <div>
+                            <h3>TriValley Minicon </h3>
+                            <p>First minicon of the year, learn about competing and have fun! Hosted by Foothill High School. </p>
+                        </div>
+                        <div class="event-tag">MINICON</div>
+                    </div>
+
+                    <div class="event">
+                        <div class="event-date">
+                            <strong>TBA</strong>
+                            <span>TBA</span>
+                        </div>
+                        <div>
+                            <h3>Emerald Minicon</h3>
+                            <p>Emerald DECA's first ever minicon! More information TBA! </p>
+                        </div>
+                        <div class="event-tag">MINICON</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Right Side (40%): CONFERENCES SUMMARY -->
+            <div class="conferences-col">
+                <h2 class="section-title">Conferences</h2>
+
+                <div class="sidebar-conferences">
+
+                    <div class="conf-summary-card">
+                        <h3>NCDC</h3>
+                        <div class="conf-meta">
+                            <span><strong>Dates:</strong> Jan 15-17</span>
+                            <span><strong>Location:</strong> Santa Clara, CA</span>
+                            <span><strong>Duration:</strong> 2 Days</span>
+                        </div>
+                    </div>
+
+                    <div class="conf-summary-card">
+                        <h3>SCDC</h3>
+                        <div class="conf-meta">
+                            <span><strong>Dates:</strong> Feb 25-28</span>
+                            <span><strong>Location:</strong> Anaheim, CA</span>
+                            <span><strong>Duration:</strong> 3 Days</span>
+                        </div>
+                    </div>
+
+                    <div class="conf-summary-card">
+                        <h3>ICDC</h3>
+                        <div class="conf-meta">
+                            <span><strong>Dates:</strong> Apr 17-20</span>
+                            <span><strong>Location:</strong> Anaheim, CA</span>
+                            <span><strong>Duration:</strong> 3 Days</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Section: CONFERENCES -->
+        <div class="conferences-section">
+            <h2 class="section-title">Conferences</h2>
+
+            <div class="conference-boxes">
+
+                <div class="conf-box">
+                    <h3>NCDC</h3>
+                    <div class="conf-content">
+                        <p>Northern District Career Development Conference. Connect with local chapters, practice roleplay events, and kickstart your competitive journey.</p>
+                        <ul>
+                            <li>Compete in roleplay and writtens</li>
+                            <li>Must be called to stage during closing ceremony or receive finalist pin to move to SCDC</li>
+                            <li>There will be an option to appeal to also go to SCDC (<strong>NOT GUARANTEED</strong>)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="conf-box">
+                    <h3>SCDC</h3>
+                    <div class="conf-content">
+                        <p>State Career Development Conference. Compete against top members across California for state titles and a spot at the international level.</p>
+                        <ul>
+                            <li>Compete in roleplay and writtens</li>
+                            <li>Required to attend AT LEAST 2 workshops</li>
+                            <li>Must be called to stage during closing ceremony or receive finalist pin to move to ICDC:
+                                <ul>
+                                    <li>Roleplays: Top 6</li>
+                                    <li>Writtens: Top 5</li>
+                                    <li>SMG &amp; VBC Finalists</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="conf-box">
+                    <h3>ICDC</h3>
+                    <div class="conf-content">
+                        <p>International Career Development Conference. The final DECA conference bringing together over 20,000 members worldwide to compete and network.</p>
+                        <ul>
+                            <li>Compete in the event that you qualify for</li>
+                            <li>Network with international competitors</li>
+                            <li>Must place top 3 in your respective events to win DECA GLASS</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>© 2026 Emerald High School DECA</p>
+
+        <p>
+            <a href="contact.html">CONTACT US</a>
+        </p>
+
+    </footer>
+
+</body>
+</html>
