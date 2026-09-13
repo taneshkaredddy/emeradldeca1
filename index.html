@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Emerald High School DECA</title>
+
+    <!-- Montserrat font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Accent line UNDERNEATH the navbar */
+        .navbar {
+            border-bottom: 4px solid var(--blue, #00529B);
+        }
+
+        .what-section {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            padding: 0 !important;
+            margin: 0 auto !important;
+            overflow: hidden !important;
+        }
+
+        .gallery-scroll-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-track {
+            display: flex;
+            width: max-content;
+            animation: marqueeScroll 25s linear infinite;
+        }
+
+        .gallery-card {
+            flex: 0 0 auto;
+            width: 420px;
+            height: 280px;
+            margin: 0;
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="brand">
+            <img src="logo.png" alt="DECA Logo" class="logo">
+        </a>
+
+        <nav>
+            <a href="index.html" class="active">HOME</a>
+            <a href="officers.html">OFFICERS</a>
+            <a href="membership.html">MEMBERSHIP</a>
+            <a href="events.html">EVENTS</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HOME -->
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">EMERALD HIGH SCHOOL</p>
+
+                <h1>
+                    <span>EMERALD</span>
+                    <span>DECA</span>
+                </h1>
+
+                <p class="hero-text">
+                    Preparing emerging leaders and entrepreneurs
+                    for college, careers, and the future.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="membership.html" class="btn btn-primary">
+                        JOIN DECA
+                    </a>
+
+                    <a href="events.html" class="btn btn-outline">
+                        VIEW EVENTS
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="hero-logo">
+
+                <img src="deca-logo.png" alt="DECA Logo">
+
+            </div>
+
+        </section>
+
+
+        <!-- WHAT IS EMERALD DECA -->
+
+        <section class="about-home">
+
+            <div class="about-text">
+
+                <p class="eyebrow">WHO WE ARE</p>
+
+                <h2>
+                    What is
+                    <span>DECA?</span>
+                </h2>
+
+                <p>
+                    DECA is a student organization
+                    dedicated to preparing high school and college students for careers in marketing, finance, hospitality, and management. 
+                </p>
+
+                <p>
+                    Through competitive events, conferences,
+                    leadership opportunities, and hands-on
+                    experiences, members have opportunities to
+                    develop leadership, business, and career skills they
+                    need to succeed. 
+                </p>
+
+                <a href="membership.html" class="text-link">
+                    LEARN ABOUT MEMBERSHIP →
+                </a>
+
+            </div>
+
+            <div class="about-photo">
+
+                <img src="chapterphoto.png" alt="Emerald High School DECA Chapter Photo">
+
+            </div>
+
+        </section>
+
+        <!-- WHY EMERALD -->
+
+        <section class="why-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">WHY DECA?</p>
+
+                <h2>
+                    More than a
+                    <span>club.</span>
+                </h2>
+
+                <p>
+                    DECA gives students the opportunity to
+                    discover their potential, build confidence,
+                    and prepare for their future.
+                </p>
+
+            </div>
+
+
+            <div class="why-grid">
+
+                <div class="why-card">
+
+                    <div class="why-number blue-text">
+                        01
+                    </div>
+
+                    <h3>BUILD LEADERSHIP</h3>
+
+                    <p>
+                        Develop communication, teamwork,
+                        and leadership skills through real
+                        experiences.
+                    </p>
+
+                </div>
+
+
+                <div class="why-card">
+
+                    <div class="why-number blue-text">
+                        02
+                    </div>
+
+                    <h3>COMPETE</h3>
+
+                    <p>
+                        Challenge yourself through DECA
+                        competitive events and conferences.
+                    </p>
+
+                </div>
+
+
+                <div class="why-card">
+
+                    <div class="why-number blue-text">
+                        03
+                    </div>
+
+                    <h3>EXPLORE CAREERS</h3>
+
+                    <p>
+                        Discover career pathways and gain
+                        skills that extend beyond the classroom.
+                    </p>
+
+                </div>
+
+
+                <div class="why-card">
+
+                    <div class="why-number blue-text">
+                        04
+                    </div>
+
+                    <h3>MAKE CONNECTIONS</h3>
+
+                    <p>
+                        Meet students, professionals, and
+                        leaders who can help shape your future.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHAT WE DO / FULL CONTAINER WIDTH AUTO-SCROLL (NON-STOP) -->
+        <section class="what-section">
+
+            <div class="gallery-scroll-container">
+                <div class="gallery-track">
+
+                    <!-- FIRST SET -->
+                    <div class="gallery-card">
+                        <img src="deca1.png" alt="Emerald DECA Chapter Photo 1">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="deca2.png" alt="Emerald DECA Chapter Photo 2">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="deca5.png" alt="Emerald DECA Chapter Photo 3">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="deca3.png" alt="Emerald DECA Chapter Photo 4">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="deca4.png" alt="Emerald DECA Chapter Photo 5">
+                    </div>
+
+                    <!-- DUPLICATE SET -->
+                    <div class="gallery-card">
+                        <img src="deca1.png" alt="Emerald DECA Chapter Photo 1">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="deca2.png" alt="Emerald DECA Chapter Photo 2">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="deca5.png" alt="Emerald DECA Chapter Photo 3">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="deca3.png" alt="Emerald DECA Chapter Photo 4">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="deca4.png" alt="Emerald DECA Chapter Photo 5">
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- FINAL CTA -->
+
+        <section class="home-cta">
+
+            <div class="cta-content">
+
+                <p class="eyebrow">
+                    YOUR NEXT STEP
+                </p>
+
+                <h2>
+                    Ready to become
+                    <span>a leader?</span>
+                </h2>
+
+                <p>
+                    Discover what Emerald DECA has to offer
+                    and find your place in our chapter.
+                </p>
+
+                <a href="membership.html" class="btn cta-button">
+                    GET INVOLVED
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Emerald High School DECA
+        </p>
+
+        <p>
+            <a href="contact.html">CONTACT US</a>
+        </p>
+
+    </footer>
+
+</body>
+</html>
