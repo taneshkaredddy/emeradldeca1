@@ -1,0 +1,1273 @@
+/* =========================================
+   EMERALD DECA
+   ========================================= */
+
+:root {
+    --blue: #275DA4;
+    --dark-blue: #1F4F91;
+
+    --red: #D71920;
+    --green: #26834A;
+    --yellow: #F5B82E;
+
+    --dark: #111827;
+    --gray: #657286;
+
+    --light-blue: #EAF2FA;
+    --light-gray: #F5F7FA;
+
+    --white: #FFFFFF;
+    --border: #E1E6EC;
+}
+
+
+/* =========================================
+   RESET
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    color: var(--dark);
+    background: white;
+    line-height: 1.55;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+nav a,
+.btn {
+    font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 800;
+}
+
+p {
+    color: var(--gray);
+}
+
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.navbar {
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5.5%;
+
+    background: white;
+
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+
+/* BRAND */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    text-decoration: none;
+}
+
+.brand .logo {
+    width: 150px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1.05;
+}
+
+.brand-text strong {
+    color: var(--blue);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+}
+
+.brand-text span {
+    margin-top: 4px;
+
+    color: var(--blue);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+nav a {
+    position: relative;
+
+    padding: 12px 17px;
+
+    color: var(--dark);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+nav a.active {
+    color: var(--blue);
+}
+
+nav a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 17px;
+    right: 17px;
+
+    bottom: 1px;
+
+    height: 3px;
+
+    background: var(--blue);
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.btn {
+    display: inline-block;
+
+    padding: 14px 24px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    color: white;
+
+    background: var(--blue);
+}
+
+.btn-primary:hover {
+    background: var(--dark-blue);
+
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    color: var(--blue);
+
+    background: white;
+
+    border: 2px solid var(--blue);
+}
+
+.btn-outline:hover {
+    color: white;
+
+    background: var(--blue);
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+    min-height: calc(100vh - 90px);
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    padding: 60px 7%;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFFFFF 0%,
+            #F8FBFE 55%,
+            #EAF3FB 100%
+        );
+}
+
+.hero-content {
+    position: relative;
+
+    max-width: 800px;
+
+    z-index: 2;
+}
+
+.eyebrow {
+    margin-bottom: 13px;
+
+    color: var(--blue);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    margin-bottom: 25px;
+
+    color: var(--blue);
+
+    font-size: clamp(65px, 8vw, 120px);
+
+    font-weight: 900;
+
+    line-height: 0.88;
+
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: var(--blue);
+}
+
+.hero-text {
+    max-width: 650px;
+
+    margin-bottom: 30px;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+
+    gap: 14px;
+}
+
+
+/* =========================================
+   DECA LOGO
+   ========================================= */
+
+.hero-logo {
+    position: absolute;
+
+    right: 8%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 390px;
+    height: 390px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1;
+}
+
+.hero-logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    opacity: 0.95;
+}
+
+
+/* =========================================
+   ABOUT
+   ========================================= */
+
+.about-home {
+    width: 84%;
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 75px 0;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.about-text h2 {
+    margin-bottom: 20px;
+
+    font-size: clamp(40px, 5vw, 62px);
+
+    line-height: 0.98;
+
+    letter-spacing: -2px;
+}
+
+.about-text h2 span {
+    display: block;
+
+    color: var(--blue);
+}
+
+.about-text > p:not(.eyebrow) {
+    max-width: 570px;
+
+    margin-bottom: 15px;
+
+    font-size: 16px;
+}
+
+.text-link {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    color: var(--blue);
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+.about-photo img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+
+/* =========================================
+   ABOUT STATS
+   ========================================= */
+
+.about-box {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: var(--light-gray);
+
+    border: 1px solid var(--border);
+}
+
+.about-stat {
+    min-height: 135px;
+
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border: 1px solid white;
+}
+
+.about-stat strong {
+    font-size: 38px;
+
+    font-weight: 900;
+}
+
+.about-stat span {
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.blue-stat strong {
+    color: var(--blue);
+}
+
+.red-stat strong {
+    color: var(--red);
+}
+
+.green-stat strong {
+    color: var(--green);
+}
+
+.yellow-stat strong {
+    color: #B27A00;
+}
+
+
+/* =========================================
+   WHY
+   ========================================= */
+
+.why-section {
+    padding: 75px 7%;
+
+    background: var(--light-gray);
+}
+
+.section-heading {
+    max-width: 700px;
+
+    margin: 0 auto 38px;
+
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin-bottom: 15px;
+
+    font-size: clamp(40px, 5vw, 62px);
+
+    line-height: 0.98;
+
+    letter-spacing: -2px;
+}
+
+.section-heading h2 span {
+    color: var(--blue);
+}
+
+.section-heading > p:last-child {
+    max-width: 620px;
+
+    margin: auto;
+
+    font-size: 15px;
+}
+
+.why-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 14px;
+}
+
+.why-card {
+    min-height: 220px;
+
+    padding: 25px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07);
+}
+
+.why-number {
+    margin-bottom: 25px;
+
+    font-size: 25px;
+
+    font-weight: 900;
+}
+
+.blue-text {
+    color: var(--blue);
+}
+
+.red-text {
+    color: var(--red);
+}
+
+.green-text {
+    color: var(--green);
+}
+
+.yellow-text {
+    color: #B27A00;
+}
+
+.why-card h3 {
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    letter-spacing: 0.8px;
+}
+
+.why-card p {
+    font-size: 12px;
+}
+
+
+
+/* =========================================
+   WHAT WE DO / PHOTO GALLERY
+   ========================================= */
+
+.what-section {
+    width: 84%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 75px 0;
+}
+
+.what-header {
+    margin-bottom: 35px;
+}
+
+.what-header h2 {
+    font-size: clamp(40px, 5vw, 62px);
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+.what-header h2 span {
+    color: var(--blue);
+}
+
+/* Horizontal Scroll Container */
+.gallery-scroll-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 15px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+
+/* Custom Scrollbar */
+.gallery-scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-track {
+    background: var(--light-gray);
+    border-radius: 4px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--blue);
+    border-radius: 4px;
+}
+
+/* Equal Box Sizes for All Images */
+.gallery-card {
+    flex: 0 0 450px;
+    height: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    scroll-snap-align: start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Forces all images to fill the box cleanly without stretching */
+    display: block;
+}
+
+/* =========================================
+   FINAL BLUE BANNER
+   ========================================= */
+
+.home-cta {
+    position: relative;
+
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 7%;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    background: #275DA4;
+}
+
+.cta-content {
+    position: relative;
+
+    max-width: 850px;
+
+    z-index: 2;
+}
+
+.home-cta .eyebrow {
+    color: white;
+}
+
+.home-cta h2 {
+    margin-bottom: 17px;
+
+    color: white;
+
+    font-size: clamp(42px, 5vw, 70px);
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+}
+
+.home-cta h2 span {
+    display: block;
+
+    color: white;
+}
+
+.home-cta p:not(.eyebrow) {
+    max-width: 620px;
+
+    margin: 0 auto 25px;
+
+    color: #EAF3FB;
+
+    font-size: 15px;
+}
+
+.cta-button {
+    color: var(--blue);
+
+    background: white;
+
+    border: 2px solid white;
+}
+
+.cta-button:hover {
+    color: white;
+
+    background: transparent;
+}
+
+
+/* =========================================
+   SUBTLE DECA-STYLE BANNER SHAPES
+   ========================================= */
+
+.home-cta::before {
+    content: "";
+
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    right: -190px;
+    top: -170px;
+
+    transform: rotate(45deg);
+
+    border: 28px solid rgba(255,255,255,0.08);
+}
+
+.home-cta::after {
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    left: -140px;
+    bottom: -150px;
+
+    transform: rotate(45deg);
+
+    border: 22px solid rgba(255,255,255,0.07);
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    min-height: 55px;
+
+    padding: 13px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--dark);
+
+    color: white;
+
+    font-size: 11px;
+}
+
+footer p {
+    color: #D4D9DF;
+}
+
+footer a {
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .hero-logo {
+        width: 300px;
+        height: 300px;
+
+        right: 2%;
+    }
+
+    .about-home {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery-card {
+    flex: 0 0 320px;
+    height: 240px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        height: auto;
+
+        min-height: 82px;
+
+        padding: 10px 4%;
+
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+    .brand .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 7px 8px;
+
+        font-size: 9px;
+    }
+
+    nav a.active::after {
+        left: 8px;
+        right: 8px;
+    }
+
+    .hero {
+        min-height: 620px;
+
+        padding: 55px 7%;
+    }
+
+    .hero h1 {
+        font-size: 62px;
+
+        letter-spacing: -3px;
+    }
+
+    .hero-text {
+        font-size: 16px;
+    }
+
+    .hero-logo {
+        width: 220px;
+        height: 220px;
+
+        right: -60px;
+
+        opacity: 0.15;
+    }
+
+    .about-home {
+        width: 90%;
+
+        padding: 60px 0;
+    }
+
+    .why-section {
+        padding: 60px 6%;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .what-section {
+        width: 90%;
+
+        padding: 60px 0;
+    }
+
+    .home-cta {
+        min-height: 270px;
+
+        padding: 60px 7%;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 4px;
+
+        text-align: center;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONE
+   ========================================= */
+
+@media (max-width: 500px) {
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .hero-logo {
+        right: -90px;
+    }
+
+    .about-box {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-stat {
+        min-height: 110px;
+
+        padding: 18px;
+    }
+
+    .about-stat strong {
+        font-size: 30px;
+    }
+}
+/* =========================
+   CONTACT PAGE
+========================= */
+
+.page-hero {
+    padding: 75px 7% 65px;
+    background: linear-gradient(
+        135deg,
+        #FFFFFF 0%,
+        #F8FBFE 55%,
+        #EAF3FB 100%
+    );
+    border-top: 4px solid var(--blue, #275DA4);
+}
+
+.page-hero h1 {
+    font-size: clamp(55px, 7vw, 90px);
+    line-height: .95;
+    letter-spacing: -3px;
+    color: var(--blue);
+    margin-bottom: 18px;
+}
+
+.page-hero p:last-child {
+    max-width: 650px;
+    font-size: 17px;
+}
+
+
+/* CONTACT INFORMATION */
+
+.contact-section {
+    width: 86%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 80px 0;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 80px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 45px 0;
+}
+
+.contact-item {
+    flex: 1;
+}
+
+.contact-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.contact-item a {
+    color: var(--blue);
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+
+/* BLUE CTA */
+
+.contact-message {
+    margin: 0 7% 80px;
+    padding: 65px 30px;
+    background: var(--blue);
+    text-align: center;
+}
+
+.contact-message h2 {
+    color: white;
+    font-size: clamp(35px, 5vw, 55px);
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 15px;
+}
+
+.contact-message p {
+    color: #EAF3FB;
+    max-width: 600px;
+    margin: 0 auto 28px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .page-hero {
+        padding: 60px 6% 50px;
+    }
+
+    .page-hero h1 {
+        font-size: clamp(48px, 13vw, 65px);
+        letter-spacing: -2px;
+    }
+
+    .page-hero p:last-child {
+        font-size: 15px;
+    }
+
+    .contact-section {
+        width: 88%;
+        padding: 60px 0;
+    }
+
+    .contact-info {
+        display: block;
+        padding: 35px 0;
+    }
+
+    .contact-item {
+        margin-bottom: 30px;
+    }
+
+    .contact-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .contact-item a {
+        font-size: 17px;
+    }
+
+    .contact-message {
+        margin: 0 6% 60px;
+        padding: 50px 25px;
+    }
+
+    .contact-message h2 {
+        font-size: 38px;
+    }
+}
+/* =========================
+   FAQ PAGE
+========================= */
+
+.faq-section {
+    width: 84%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 65px 0 80px;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-item {
+    border: 1px solid var(--border);
+    background: white;
+}
+
+.faq-item summary {
+    list-style: none;
+    cursor: pointer;
+
+    padding: 24px 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    transition: 0.2s ease;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+
+    color: var(--blue);
+
+    font-size: 25px;
+    font-weight: 500;
+
+    flex-shrink: 0;
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-item[open] summary {
+    color: var(--blue);
+}
+
+.faq-answer {
+    padding: 0 28px 25px;
+    max-width: 850px;
+}
+
+.faq-answer p {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.faq-answer a {
+    color: var(--blue);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.faq-answer a:hover {
+    text-decoration: underline;
+}
+
+.faq-answer ul {
+    margin: 0 0 18px 20px;
+    padding: 0;
+}
+
+.faq-answer li {
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.faq-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+.faq-links a {
+    display: inline-block;
+
+    background: var(--blue);
+    color: white;
+
+    padding: 11px 18px;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.faq-links a:hover {
+    background: var(--dark-blue);
+}
+
+
+/* MOBILE FAQ */
+
+@media(max-width:700px) {
+
+    .faq-section {
+        width: 88%;
+        padding: 55px 0 65px;
+    }
+
+    .faq-item summary {
+        padding: 20px;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .faq-answer {
+        padding: 0 20px 22px;
+    }
+
+    .faq-answer p,
+    .faq-answer li {
+        font-size: 12px;
+    }
+
+    .faq-links {
+        flex-direction: column;
+    }
+
+    .faq-links a {
+        text-align: center;
+    }
+
+}
